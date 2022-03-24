@@ -11,12 +11,9 @@ project(
 # Common options and functions separated for easier reuse in other projects.
 include(cmake/reproc.cmake)
 
-option(REPROC++ "Build reproc++" ${REPROC_DEVELOP})
-option(
-  REPROC_MULTITHREADED
-  "Use `pthread_sigmask` and link against the system's thread library"
-  ON
-)
+set(REPROC++ ON)
+set(BUILD_SHARED_LIBS ON)
+set(REPROC_DEVELOP ON)
 
 if(REPROC_MULTITHREADED)
   set(THREADS_PREFER_PTHREAD_FLAG ON)
